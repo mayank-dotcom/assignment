@@ -43,11 +43,10 @@ export async function POST(req: NextRequest) {
     const buffer = Buffer.from(arrayBuffer);
 
     // Save file temporarily 
-    const tempDir = path.join(process.cwd(), 'temp');
+    const tempDir = "/tmp"; // ✅ Serverless-compatible temporary directory
     await fs.mkdir(tempDir, { recursive: true });
     const tempFilePath = path.join(tempDir, pdfFile.name);
     await fs.writeFile(tempFilePath, buffer);
-
     await client.connect();
     const db = client.db("asssignment_final");
     const collection: Collection = db.collection("asssignment_collection");
