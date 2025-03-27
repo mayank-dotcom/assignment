@@ -20,7 +20,26 @@
 }
 
 body {
-  background: var(--background);
+  background: black !important;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+@media (max-width: 1536px) and (min-width: 1280px) {
+body{
+  scale: 115%;
+  overflow-x: hidden;
+
+}
+}
+@media (min-width: 1900px) {
+body{
+  position: relative;
+  top:16rem;
+  /* border:12px solid red; */
+  scale: 135%;
+  height: 100rem;
+  overflow-x: hidden;
+
+} 
+
 }

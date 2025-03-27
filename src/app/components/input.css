@@ -1,0 +1,18 @@
+#headset{
+    position: relative;
+    top: 0.9rem;
+    right: -23rem;
+    font-size: 50px;
+    color: pink;
+}#tit{
+    position: relative;
+    top: 5rem;
+    left: -3rem;
+    color: white!important;
+}#bot_cont{
+    position: relative;
+    z-index: -10;
+}#head_cont{
+    position: relative;
+    top: 5em;
+}
