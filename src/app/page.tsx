@@ -4,7 +4,7 @@ import PlaceholdersAndVanishInput from"@/app/components/Inputform"
 import Link from "next/link"
 export default function Home() {
   return (
-    <div>
+    <div id="main_body">
       <PlaceholdersAndVanishInput/>
       <div
      id="add_url"

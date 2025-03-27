@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
   const model = new HuggingFaceInference({
     model: "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
     temperature: 0.3,
-    maxTokens: 50,
+    maxTokens: 500,
     apiKey: process.env.HUGGINGFACEHUB_API_KEY,
   });
 

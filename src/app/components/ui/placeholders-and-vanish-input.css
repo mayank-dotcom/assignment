@@ -1,3 +1,7 @@
+form{
+  /* border: 2px solid red; */
+  /* max-width: 30rem!important; */
+}
 #inpuone{
     width: 390rem!important;
     height: 40rem;
@@ -85,14 +89,20 @@
 }#answer_cont{
     position: relative;
     top: -28rem;
+    left: 0.05rem;
+    padding-right: 4px;
+    padding-left: 4px;
     border: 2px solid rgb(78, 73, 73) ;
     background-color:rgba(41, 39, 39, 0.82) ;
     border-radius: 15px;
-     width: 30rem;
+     /* width: 30rem; */
+     /* overflow-y: scroll !important; */
+font-size: 10px;
      right: -2rem;
 }#answer{
     position: relative;
     padding: 14px 20rem 14px 20px!important; 
+    
     /* width: 10rem; */
     /* border: 2px solid red; */
 }#answer_sub_answer{
