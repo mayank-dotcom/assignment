@@ -13,6 +13,7 @@
     "@langchain/community": "^0.3.37",
     "@langchain/core": "^0.3.43",
     "@radix-ui/react-label": "^2.1.2",
+    "@tailwindcss/postcss": "^4.0.17",
     "axios": "^1.8.4",
     "cheerio": "^1.0.0",
     "clsx": "^2.1.1",
