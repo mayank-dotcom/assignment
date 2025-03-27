@@ -38,10 +38,9 @@ export async function POST(request: NextRequest) {
 
   // Load LLM model
   const model = new HuggingFaceInference({
-    // model: "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
-    model: "gpt2-medium", 
+    model: "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
     temperature: 0.3,
-    maxTokens: 256,
+    maxTokens: 512,
     apiKey: process.env.HUGGINGFACEHUB_API_KEY,
   });
 

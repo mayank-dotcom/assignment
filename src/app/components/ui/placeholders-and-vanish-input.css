@@ -108,7 +108,9 @@ body{
   /* border: 2px solid red; */
 }  #enter_input{
   width: 42rem !important;
-  /* border: 2px solid red; */
+color: pink !important;
+  position: relative;
+  z-index: 60;
 }
 }@media (min-width: 1900px) {
   #enter_input{

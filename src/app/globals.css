@@ -21,7 +21,7 @@
 
 body {
   background: black !important;
-  color: var(--foreground);
+  color: pink;
   font-family: Arial, Helvetica, sans-serif;
 }
 @media (max-width: 1536px) and (min-width: 1280px) {
