@@ -1,0 +1,4 @@
+[functions]
+  directory = "functions"  # or wherever your functions are
+  node_bundler = "esbuild" # or "nft" if you need more control
+  timeout = 30 # maximum allowed is 30 seconds for starter plans
