@@ -5,3 +5,4 @@ some basic instructions -
 some precautions-
 1. this api is free
 2. dont put urls aur pdfs that contain large data 
+3. in case you hit the api limit than you have no option but to wait for 24hrs  before retrying
