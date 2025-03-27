@@ -214,7 +214,8 @@ export default function PlaceholdersAndVanishInput({
         console.log(result.data.text);
         setLoading(false);
 
-        setResponse(result.data.text);
+        const cleanText = result.data.text.split("</think>")[0]; // Remove everything after </think>
+        setResponse(cleanText);
       } else if(result.data.text == undefined) {
         console.log("Please wait a few seconds then retry. Either there is a network connectivity issue or you might have hit the hugging face api limit. If reaching the limit is the case than please try next day once the API limit resets. ");
         setLoading(false);
