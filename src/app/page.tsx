@@ -1,6 +1,7 @@
 import Image from "next/image";
 import './page.css'
 import PlaceholdersAndVanishInput from"@/app/components/Inputform"
+import Link from "next/link"
 export default function Home() {
   return (
     <div>
@@ -10,7 +11,7 @@ export default function Home() {
         className="flex justify-center items-center w-14 h-14 rounded-full bg-pink-300 transition-all duration-300 absolute top-0 group-hover:scale-[.60] group-hover:origin-top text-white"
       >
         <span style={{color:"black",fontWeight:"900",fontSize:"20px!important",scale:"120%"}}>
-    <a href="/url" id="fic">   <i className="fa-solid fa-link"></i></a>
+    <Link href="/url" id="fic">   <i className="fa-solid fa-link"></i></Link>
           <g id="Grupo_3793" data-name="Grupo 3793" transform="translate(1.5 1.5)">
             <path
               id="Trazado_28219"
@@ -42,7 +43,7 @@ export default function Home() {
         className="flex justify-center items-center w-14 h-14 rounded-full bg-pink-300 transition-all duration-300 absolute top-0 group-hover:scale-[.60] group-hover:origin-top text-white"
       >
         <span style={{color:"black",fontWeight:"900",fontSize:"20px!important",scale:"120%"}}>
-    <a href="/pdf" id="fic">    <i className="fa-solid fa-file"></i></a>
+    <Link href="/pdf" id="fic">    <i className="fa-solid fa-file"></i></Link>
           <g id="Grupo_3793" data-name="Grupo 3793" transform="translate(1.5 1.5)">
             <path
               id="Trazado_28219"
