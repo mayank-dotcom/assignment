@@ -1,4 +1,14 @@
+[build]
+  command = "npm run build"
+  publish = "out"  # or your Next.js output directory
+
 [functions]
-  directory = "functions"  # or wherever your functions are
-  node_bundler = "esbuild" # or "nft" if you need more control
-  timeout = 30 # maximum allowed is 30 seconds for starter plans
+  directory = ".next/serverless/pages/api"  # For Next.js API routes
+  node_bundler = "esbuild"  # or "nft" for more control
+
+  [functions.settings]
+    # Timeout in seconds (max 30 for starter plans)
+    timeout = 30  
+
+    # If you need to include specific node modules
+    external_node_modules = ["@langchain/core", "mongodb"]
