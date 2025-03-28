@@ -95,9 +95,10 @@ form{
     border: 2px solid rgb(78, 73, 73) ;
     background-color:rgba(41, 39, 39, 0.82) ;
     border-radius: 15px;
+
      /* width: 30rem; */
      /* overflow-y: scroll !important; */
-font-size: 10px;
+font-size: 15px;
      right: -2rem;
 }#answer{
     position: relative;
