@@ -6,6 +6,12 @@
   package = "@netlify/plugin-nextjs"
 
 [functions]
+  included_files = ["**/*"]
   node_bundler = "esbuild"
-  [functions.settings]
-    timeout = 60
+  external_node_modules = ["@netlify/framework-info"]
+  
+[build.environment]
+  NEXT_USE_NETLIFY_EDGE = "true"
+
+[functions."*"]
+  timeout = 60
