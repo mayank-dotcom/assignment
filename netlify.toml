@@ -3,7 +3,7 @@
   publish = ".next"
 
 [functions]
-  directory = ".next/_next/static/chunks/app/api/"
+  directory = ".next/server/app/api"
   node_bundler = "esbuild"
   [functions.settings]
     timeout = 60
