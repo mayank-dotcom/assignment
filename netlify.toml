@@ -5,7 +5,7 @@
   # publish = "out"  # Only if you're using `next export`
 
 [functions]
-  directory = ".next/serverless/pages/api"
+  directory = ".next/_next/static/chunks/app/api"
   node_bundler = "esbuild"
 
   [functions.settings]
