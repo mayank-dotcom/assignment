@@ -1,9 +1,11 @@
 [build]
   command = "npm run build"
-  publish = ".next"
+  publish = ".next"  # For standard Next.js builds
+
 
 [functions]
-  directory = ".next/server/app" 
+  directory = ".next/server/app/api"
   node_bundler = "esbuild"
+
   [functions.settings]
     timeout = 60
