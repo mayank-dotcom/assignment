@@ -1,11 +1,11 @@
 [build]
   command = "npm run build"
-  publish = ".next"  # For standard Next.js builds
+  publish = ".next"
 
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 [functions]
-  directory = ".next/server/app"
   node_bundler = "esbuild"
-
   [functions.settings]
     timeout = 60
