@@ -110,7 +110,7 @@
 //   }
 // }
 import { NextRequest, NextResponse } from "next/server";
-import { getQAChain } from "@/app/ai/ai";
+import { getQAChain } from "@/app/api/ai/ai";
 import clientPromise from "@/dbconfig/dbconfig";
 
 interface QAChainResult {
