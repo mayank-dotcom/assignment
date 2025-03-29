@@ -1,12 +1,19 @@
 [build]
   command = "npm run build"
-  publish = ".next"  # For standard Next.js builds
-  # OR if using static export:
-  # publish = "out"  # Only if you're using `next export`
+  publish = ".next"
 
 [functions]
   directory = ".next/server/app/api"
   node_bundler = "esbuild"
-
   [functions.settings]
     timeout = 60
+
+# Optional: Edge Functions for runtime = 'edge'
+[[edge_functions]]
+  path = "/api/*"
+  function = "edge"
+
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
