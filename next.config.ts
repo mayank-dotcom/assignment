@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true, // Disables ESLint checks during build
   },
+  output: "standalone", // Ensures all necessary files are included in the build
 };
 
 export default nextConfig;
