@@ -137,7 +137,7 @@ export async function POST(request: NextRequest) {
     // 2. Parse request
     const reqBody = await request.json();
     const { question, userId } = reqBody;
-    
+
     if (!userId) {
       return NextResponse.json(
         { error: "userId is required" },
@@ -148,38 +148,30 @@ export async function POST(request: NextRequest) {
     // 3. Get chain and process query
     const chain = await getQAChain();
     console.log("⏳ Processing query...");
-    
-    let result:QAChainResult;
-    try {
-      // result = await chain.call({ query: question });
-      const chainResponse = await chain.call({ query: question });
-      result = {
-        text: chainResponse.text || "", // Handle cases where `text` may be missing
-        sourceDocuments: chainResponse.sourceDocuments || [],
-      };
-    } catch (apiError) {
-      console.error("API Limit Reached:", apiError);
 
-      return NextResponse.json(
-        { text: "API limit reached! Please try later.", error: "Rate limit exceeded" },
-        { status: 429 } // HTTP 429 Too Many Requests
-      );
+    let responseText: string;
+    try {
+      const result = await chain.call({ query: question });
+      responseText = result.text;
+      console.log("✅ Processing complete");
+    } catch (apiError) {
+      console.error("API Limit Error:", apiError);
+      responseText = "API limit reached. Please try again later."; // Store this as the response
     }
 
-   
     // 4. Store history
     try {
       await historyCollection.insertOne({
         userId,
         question,
-        response: result.text, // Now properly accessing the resolved value
+        response: responseText, // Store the API error message if it occurs
         timestamp: new Date(),
       });
     } catch (storageError) {
       console.error("History storage error:", storageError);
     }
 
-    return NextResponse.json({ text: result.text });
+    return NextResponse.json({ text: responseText });
 
   } catch (error: unknown) {
     console.error("API Error:", {
@@ -189,11 +181,14 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json(
-      { 
-        text:"Api limit reached !! Please try later.",
+      {
         error: "Processing failed",
-        details: process.env.NODE_ENV === "development" ? 
-          (error instanceof Error ? error.message : String(error)) : null
+        details:
+          process.env.NODE_ENV === "development"
+            ? error instanceof Error
+              ? error.message
+              : String(error)
+            : null,
       },
       { status: 500 }
     );
