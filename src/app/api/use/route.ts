@@ -171,11 +171,12 @@ export async function POST(request: NextRequest) {
     console.error("API Error:", {
       message: error instanceof Error ? error.message : "Unknown error",
       stack: error instanceof Error ? error.stack : undefined,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     });
 
     return NextResponse.json(
       { 
+        text:"Api limit reached !! Please try later.",
         error: "Processing failed",
         details: process.env.NODE_ENV === "development" ? 
           (error instanceof Error ? error.message : String(error)) : null
