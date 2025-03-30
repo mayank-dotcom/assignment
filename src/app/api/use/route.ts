@@ -149,10 +149,24 @@ export async function POST(request: NextRequest) {
     const chain = await getQAChain();
     console.log("⏳ Processing query...");
     
-    // Remove the Promise type assertion since chain.call already returns a Promise
-    const result = await chain.call({ query: question });
-    console.log("✅ Processing complete");
+    let result:QAChainResult;
+    try {
+      // result = await chain.call({ query: question });
+      const chainResponse = await chain.call({ query: question });
+      result = {
+        text: chainResponse.text || "", // Handle cases where `text` may be missing
+        sourceDocuments: chainResponse.sourceDocuments || [],
+      };
+    } catch (apiError) {
+      console.error("API Limit Reached:", apiError);
 
+      return NextResponse.json(
+        { text: "API limit reached! Please try later.", error: "Rate limit exceeded" },
+        { status: 429 } // HTTP 429 Too Many Requests
+      );
+    }
+
+   
     // 4. Store history
     try {
       await historyCollection.insertOne({
